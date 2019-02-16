@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Category>
+<div class="row">
+    <div class="aside-widget">
+        <div class="section-title">
+            <h2 style="border-bottom:1px solid #ccc;">Kategoriler</h2>
+        </div>
+        <div class="category-widget">
+            <ul>
+                <!--     categories -->
+                @foreach (var item in Model)
+                {
+                    <li><a href="#" class="cat-@item.Id">@item.Name<span>111</span></a></li>
+                }
+            </ul>
+        </div>
+    </div>
+    <!-- /categories -->
+
+</div>

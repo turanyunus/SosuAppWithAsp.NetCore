@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">User Listesi</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>İsim</th>
+                    <th>Soyisim</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="postsTbody">
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <th>@item.Id</th>
+                        <th>@item.Name</th>
+                        <th>@item.Surname</th>
+                        <th>@item.Email</th>
+                        <th>@item.UserName</th>
+                        <th>
+                            <button class="btn btn-primary btn-sm">     Onayla     </button>
+                            <form asp-route-id="@item.Id" asp-action="Delete" method="post">
+                                <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                            </form>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

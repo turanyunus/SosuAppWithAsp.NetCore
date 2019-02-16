@@ -1,0 +1,51 @@
+﻿@model UserRegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="content" style="margin-top:40px">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-6">
+                <div class="padding25">
+                    <h4>Kayıt İşlemleri</h4><hr />
+                </div>
+                <form asp-action="Register" method="post">
+                    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                    <div class="text-danger" asp-validation-summary="All"></div>
+                    <div class="form-group col-xs-12">
+                        <input asp-for="Name" class="form-control input-lg" placeholder="İsim">
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <input asp-for="Surname" class="form-control input-lg" placeholder="Soyisim">
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <input asp-for="Email" class="form-control input-lg" placeholder="Mail Giriniz">
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <input asp-for="Password" class="form-control input-lg" placeholder="Şifre">
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <input asp-for="PasswordA" class="form-control input-lg" placeholder="Şifre Tekrar">
+                    </div>
+                    <div class="form-group col-xs-12 text-left">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fa fa-send fa-fw"></i> Kayıt Olunuz
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <p> <h4>Hey Selam,</h4><br />Öncelikle hoşgeldin. Şuan bu aileye katılarak çok güzel bir maceraya atılıyorsun. Biz de seninle tanışmak için sabırsızlanıyoruz.
+                Seni tanıyacağımız için kendimizi çok şanslı hissediyoruz. <br /><br /> Tüm dileklerinin kabul olması dileğiyle ...</p><br />
+                <p>Eğer kayıtlı isen bu <a asp-controller="Account" asp-action="Login">giriş yap</a>  işlemi yapabilirsin</p>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+

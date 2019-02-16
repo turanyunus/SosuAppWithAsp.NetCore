@@ -1,0 +1,39 @@
+﻿    @model IEnumerable<Post>
+<!-- row -->
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        var name = "s";
+        if (item.CategoryId == 1)
+        {
+            name = "Kitap";
+        }
+        else if (item.CategoryId == 2)
+        {
+            name = "Film";
+        }
+        else if (item.CategoryId == 3)
+        {
+            name = "Dizi";
+        }
+        <!-- post -->
+        <div class="col-md-6">
+            <div class="post post-thumb">
+                <a class="post-img" asp-controller="Post" asp-action="Details" asp-route-id="@item.Id"><img src="./img/@item.Image" alt=""></a>
+                <div class="post-body">
+                    <div class="post-meta">
+                        <a class="post-category cat-@item.CategoryId" asp-controller="Post" asp-action="Details" asp-route-id="@item.Id">@Html.Raw(name)</a>
+                        <a class="post-category cat-4">@item.Like</a>
+                        <a class="post-category cat-4">@item.DisLike</a>
+                        <span class="post-date">@item.Date</span>
+                    </div>
+                    <h3 class="post-title"><a asp-controller="Post" asp-action="Details" asp-route-id="@item.Id">@item.Description</a></h3>
+                </div>
+            </div>
+        </div>
+        <!-- /post -->
+    }
+
+</div>
+<!-- /row -->

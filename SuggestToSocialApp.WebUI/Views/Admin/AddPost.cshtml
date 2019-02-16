@@ -1,0 +1,46 @@
+﻿@model Post
+@{
+    ViewData["Title"] = "AddPost";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <form asp-controller="Admin" asp-action="AddPost" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Name">Adı</label>
+            <input asp-for="Name" class="form-control" placeholder="Adını Giriniz">
+        </div>
+        <div class="form-group">
+            <label asp-for="Description">Açıklama</label>
+            <textarea asp-for="Description" class="form-control" placeholder="Açıklama Giriniz" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="Author">Yazar</label>
+            <input asp-for="Author" class="form-control" placeholder="Yazar Giriniz">
+        </div>
+        <select asp-for="CategoryId">
+            <option>Kategori Seçiniz</option>
+            <option>Kitap</option>
+            <option>Dizi</option>
+            <option>Film</option>
+        </select>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Konu</label>
+            <select multiple asp-for="SubjectId">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Image">Resim Seçiniz</label>
+            <input type="file" class="form-control-file" id="file">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Post Ekle"></input>
+        </div>
+    </form>
+</div>
